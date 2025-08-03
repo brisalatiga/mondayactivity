@@ -19,22 +19,22 @@ function getLocation() {
         document.getElementById("lokasi").innerText = `Lokasi: ${currentLatitude}, ${currentLongitude}`;
         validateForm();
       },
-      function (error) {
-        document.getElementById("lokasi").innerText = "Gagal mendapatkan lokasi.";
+      function () {
+        document.getElementById("lokasi").innerText = "❌ Gagal mendapatkan lokasi.";
       }
     );
   } else {
-    document.getElementById("lokasi").innerText = "Geolocation tidak didukung.";
+    document.getElementById("lokasi").innerText = "❌ Geolocation tidak didukung.";
   }
 }
 
 function validateForm() {
   const form = document.getElementById("activityForm");
   const isValid = form.checkValidity();
-  const lokasiTersedia = currentLatitude !== null && currentLongitude !== null;
+  const hasLocation = currentLatitude !== null && currentLongitude !== null;
   const submitBtn = document.getElementById("submitBtn");
 
-  submitBtn.disabled = !(isValid && lokasiTersedia);
+  submitBtn.disabled = !(isValid && hasLocation);
 }
 
 function resetForm() {
@@ -68,6 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
     submitBtn.disabled = true;
     loader.style.display = "inline-block";
     submitText.textContent = "Mengirim...";
+    uploadResult.innerText = "Mengirim data...";
 
     const formData = new FormData();
     formData.append("pekerja", document.getElementById("namaPekerja").value);
