@@ -87,10 +87,14 @@ function submitData() {
   const btn = document.getElementById("submitBtn");
   const loader = document.getElementById("loaderSubmit");
   const text = document.getElementById("submitText");
+  const progressBar = document.getElementById("uploadResult");
 
   btn.disabled = true;
   loader.style.display = "inline-block";
   text.textContent = "Mengirim...";
+
+  // Tampilkan progress awal
+  progressBar.innerHTML = `<div class="progress-bar" id="bar" style="width: 20%"></div>`;
 
   const formData = new FormData();
   formData.append("pekerja", document.getElementById("namaPekerja").value);
@@ -106,15 +110,23 @@ function submitData() {
     method: "POST",
     body: formData
   })
-    .then(res => res.text())
+    .then(res => {
+      // Simulasikan progress hingga 100%
+      progressBar.innerHTML = `<div class="progress-bar" style="width: 100%"></div>`;
+      return res.text();
+    })
     .then(msg => {
       showToast("✅ " + msg);
       resetForm();
     })
-    .catch(err => showToast("❌ Gagal simpan: " + err, false))
+    .catch(err => {
+      progressBar.innerHTML = "";
+      showToast("❌ Gagal simpan: " + err, false);
+    })
     .finally(() => {
       text.textContent = "Submit";
       loader.style.display = "none";
     });
 }
+
 
