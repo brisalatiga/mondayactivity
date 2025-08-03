@@ -102,7 +102,7 @@ function submitData() {
   data.append("latitude", currentLatitude);
   data.append("longitude", currentLongitude);
 
-  fetch("https://script.google.com/macros/s/AKfycbxQ-Ax5Mqgq5UohAX2r4dpdN4Caqa8s2qvcOxwfcGzhVW-MQY42G5m5SGQCm3fk8hqJXA/exec?" + data.toString())
+  fetch("https://script.google.com/macros/s/AKfycbxQ-Ax5Mqgq5UohAX2r4dpdN4Caqa8s2qvcOxwfcGzhVW-MQY42G5m5SGQCm3fk8hqJXA/exec" + data.toString())
     .then(res => res.text())
     .then(msg => {
       showToast("✅ " + msg);
