@@ -3,93 +3,106 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BRImo Opening</title>
+  <title>Daily Activity</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="Brimo samping.png" />
+  <link rel="icon" href="white%20BRI_2020.svg.png" />
   <style>
-    body {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      margin: 0;
-      background: linear-gradient(135deg, #003c8f, #001f4d);
-      color: white;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      overflow-x: hidden;
+    .menu-wrapper {
+      margin: 40px auto;
+      text-align: center;
     }
-    header {
+    .menu-btn {
       display: flex;
       align-items: center;
-      padding: 20px;
-      background: transparent;
-    }
-    .logo-bri {
-      height: 50px;
-      object-fit: contain;
-    }
-    main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
       justify-content: center;
-      text-align: center;
-      padding: 0 20px;
-    }
-    .welcome-text {
-      font-size: 20px;
-      font-weight: 400;
-      line-height: 1.5;
-      max-width: 600px;
-      margin: 0 auto;
-      opacity: 0;
-      animation: fadeIn 2s forwards;
-    }
-    @keyframes fadeIn {
-      0% {opacity: 0; transform: translateY(20px);}
-      100% {opacity: 1; transform: translateY(0);}
-    }
-    .continue-btn {
-      margin-top: 40px;
-      padding: 14px 32px;
-      background-color: #ff6600;
-      color: white;
-      border: none;
-      border-radius: 10px;
+      gap: 12px;
+      width: 90%;
+      max-width: 320px;
+      margin: 16px auto;
+      padding: 16px 20px;
       font-size: 18px;
       font-weight: 600;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #0060AE, #007bff);
+      color: white;
+      border: none;
       cursor: pointer;
-      transition: background 0.3s, transform 0.2s;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
     }
-    .continue-btn:hover {
-      background-color: #e65500;
+    .menu-btn:hover {
       transform: translateY(-2px);
+      background: linear-gradient(135deg, #0050a3, #006ae3);
     }
-    footer {
+    .menu-btn:active {
+      transform: scale(0.98);
+    }
+    input[type="password"] {
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      width: 90%;
+      max-width: 300px;
+      margin: 10px auto;
+      font-size: 16px;
       text-align: center;
-      font-size: 12px;
-      padding: 20px;
-      color: #ccc;
+      display: block;
+    }
+    #monitoring-section {
+      display: none;
+      margin-top: 20px;
+    }
+    .footer {
+      margin-top: 60px;
+      text-align: center;
+      font-size: 13px;
+      color: #777;
     }
   </style>
 </head>
 <body>
-  <!-- Header dengan Logo BRImo -->
+  <!-- Header -->
   <header>
-    <img src="Brimo samping.png" alt="BRImo" class="logo-bri" />
+    <img src="white%20BRI_2020.svg.png" alt="BRI" class="logo-bri" />
+    <div>
+      <h1>Daily Activity<br><span>BRI Unit Susukan</span></h1>
+    </div>
   </header>
 
-  <!-- Animasi Teks Selamat Datang -->
-  <main>
-    <div class="welcome-text">
-      Selamat anda membuka laman yang bertujuan untuk kemajuan BRI Salatiga.
-    </div>
-    <button class="continue-btn" onclick="window.location.href='form.html'">
-      Lanjutkan
+  <!-- Menu -->
+  <div class="menu-wrapper">
+    <button class="menu-btn" onclick="window.location.href='form.html'">
+      📝 Input Aktivitas
     </button>
-  </main>
+    <button class="menu-btn" onclick="showMonitoring()">
+      📊 Monitoring Aktivitas
+    </button>
 
-  <footer>
-    &copy; 2025 BRI Salatiga
-  </footer>
+    <div id="monitoring-section">
+      <input type="password" id="monitoring-password" placeholder="Masukkan Password" />
+      <button class="menu-btn" onclick="verifyPassword()">🔓 Masuk</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    &copy; 2025 BRI Unit Susukan — Daily Activity
+  </div>
+
+  <!-- Script -->
+  <script>
+    function showMonitoring() {
+      document.getElementById("monitoring-section").style.display = "block";
+    }
+
+    function verifyPassword() {
+      const password = document.getElementById("monitoring-password").value;
+      if (password === "445566") {
+        window.location.href = "monitoring.html";
+      } else {
+        alert("❌ Password salah!");
+      }
+    }
+  </script>
 </body>
 </html>
