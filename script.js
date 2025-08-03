@@ -99,7 +99,7 @@ async function uploadFoto() {
       }, 100);
 
       try {
-        const response = await fetch("https://script.google.com/macros/s/AKfycbzLTnB6M6ZuF_Vbc5kaCWOoMqtVX-kgPKDm1K_avaMLCCAZT1KUav4CTYNHtABYmiiN/exec", {
+        const response = await fetch("https://script.google.com/macros/s/AKfycbxQ-Ax5Mqgq5UohAX2r4dpdN4Caqa8s2qvcOxwfcGzhVW-MQY42G5m5SGQCm3fk8hqJXA/exec", {
           method: "POST",
           body: data,
         });
@@ -169,7 +169,7 @@ function submitData() {
   data.append("longitude", currentLongitude);
   data.append("foto", uploadedFileLinks.join(", "));
 
-  fetch("https://script.google.com/macros/s/AKfycbzLTnB6M6ZuF_Vbc5kaCWOoMqtVX-kgPKDm1K_avaMLCCAZT1KUav4CTYNHtABYmiiN/exec?" + data.toString())
+  fetch("https://script.google.com/macros/s/AKfycbxQ-Ax5Mqgq5UohAX2r4dpdN4Caqa8s2qvcOxwfcGzhVW-MQY42G5m5SGQCm3fk8hqJXA/exec" + data.toString())
     .then(res => res.text())
     .then(msg => {
       showToast("✅ " + msg);
