@@ -102,7 +102,7 @@ function submitData() {
   formData.append("latitude", currentLatitude);
   formData.append("longitude", currentLongitude);
 
-  fetch("https://script.google.com/macros/s/AKfycbxQ-Ax5Mqgq5UohAX2r4dpdN4Caqa8s2qvcOxwfcGzhVW-MQY42G5m5SGQCm3fk8hqJXA/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbxj3eNy-LaCcVUwOUSzpcJ5kerHxTuXantWmzjiZE-p9U3dEM1ewnHE36QGnyKkLlg/exec", {
     method: "POST",
     body: formData
   })
