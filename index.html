@@ -3,93 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Monday Activity</title>
+  <title>BRI Opening Page</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="Brimo samping.png" />
-  <style>
-    body {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      margin: 0;
-      background: linear-gradient(135deg, #003c8f, #001f4d);
-      color: white;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      overflow-x: hidden;
-    }
-    header {
-      display: flex;
-      align-items: center;
-      padding: 20px;
-      background: transparent;
-    }
-    .logo-bri {
-      height: 50px;
-      object-fit: contain;
-    }
-    main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-      padding: 0 20px;
-    }
-    .welcome-text {
-      font-size: 20px;
-      font-weight: 400;
-      line-height: 1.5;
-      max-width: 600px;
-      margin: 0 auto;
-      opacity: 0;
-      animation: fadeIn 2s forwards;
-    }
-    @keyframes fadeIn {
-      0% {opacity: 0; transform: translateY(20px);}
-      100% {opacity: 1; transform: translateY(0);}
-    }
-    .continue-btn {
-      margin-top: 40px;
-      padding: 14px 32px;
-      background-color: #ff6600;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      font-size: 18px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.3s, transform 0.2s;
-    }
-    .continue-btn:hover {
-      background-color: #e65500;
-      transform: translateY(-2px);
-    }
-    footer {
-      text-align: center;
-      font-size: 12px;
-      padding: 20px;
-      color: #ccc;
-    }
-  </style>
 </head>
 <body>
-  <!-- Header dengan Logo BRImo -->
-  <header>
-    <img src="Brimo samping.png" alt="BRImo" class="logo-bri" />
-  </header>
-
-  <!-- Animasi Teks Selamat Datang -->
-  <main>
-    <div class="welcome-text">
-      Selamat anda membuka laman yang bertujuan untuk kemajuan BRI Salatiga.
+  <div class="opening-container">
+    <div class="logo-wrapper">
+      <img src="Brimo samping.png" alt="BRIMO Logo" class="brimo-logo" />
     </div>
-    <button class="continue-btn" onclick="window.location.href='form.html'">
-      Lanjutkan
-    </button>
-  </main>
-
-  <footer>
-    &copy; 2025 BRI Salatiga
-  </footer>
+    <div class="opening-text">
+      <p>Selamat anda membuka laman yang bertujuan untuk kemajuan BRI Salatiga.</p>
+    </div>
+    <button class="continue-btn" onclick="window.location.href='form.html'">Lanjutkan</button>
+  </div>
 </body>
 </html>
