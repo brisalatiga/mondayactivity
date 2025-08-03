@@ -1,9 +1,9 @@
-/* Reset & Font */
+/* Dasar */
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f5f7fa;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background-color: #f0f2f5;
   color: #333;
 }
 
@@ -11,33 +11,53 @@ body {
 header {
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 20px;
-  background: linear-gradient(135deg, #0060AE, #007bff);
+  background: linear-gradient(135deg, #003d79, #0050a3);
   color: white;
   border-radius: 0 0 30px 30px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
-.logo-bri {
-  height: 38px;
-  margin-right: 15px;
-  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
+.logo-brimo {
+  height: 50px;
   object-fit: contain;
 }
 
-/* Judul Header */
-header h1 {
-  font-size: 20px;
-  margin: 0;
-  line-height: 1.2;
+/* Welcome */
+.welcome-section {
+  text-align: center;
+  margin: 50px 20px;
 }
-header h1 span {
-  font-size: 14px;
-  font-weight: normal;
+.animated-text {
+  font-size: 28px;
+  font-weight: 700;
+  animation: fadeIn 2s ease-in-out;
+}
+.animated-text span {
   display: block;
+  font-size: 20px;
+  font-weight: normal;
+  margin-top: 10px;
+}
+.cta-button {
+  margin-top: 40px;
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #003d79, #0050a3);
+  color: white;
+  box-shadow: 4px 4px 12px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.cta-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 6px 6px 16px rgba(0,0,0,0.25);
 }
 
-/* Wrapper Form */
+/* Form Wrapper */
 .form-wrapper {
   margin: 20px auto;
   padding: 20px;
@@ -47,120 +67,20 @@ header h1 span {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
-/* Label dan Field */
-main label {
-  font-weight: 600;
-  margin-top: 15px;
-  display: block;
-}
-
-main select,
-main input[type="text"],
-main input[type="file"] {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  margin-top: 6px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+/* Footer */
+footer {
+  text-align: center;
   font-size: 14px;
-  background-color: #fff;
-  box-sizing: border-box;
+  margin: 40px 0 20px;
+  color: #777;
 }
 
-.error {
-  font-size: 12px;
-  color: red;
-  margin-top: 4px;
-}
-
-/* Progress Upload */
-.progress {
-  font-size: 13px;
-  color: #666;
-  margin-top: 12px;
-  display: none; /* default disembunyikan */
-}
-.progress-bar-wrapper {
-  width: 100%;
-  height: 6px;
-  background: #ddd;
-  border-radius: 10px;
-  margin-top: 10px;
-  overflow: hidden;
-}
-.progress-bar {
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(to right, #00c6ff, #0072ff);
-  transition: width 0.4s ease;
-}
-
-/* Tombol Submit */
-button {
-  margin-top: 25px;
-  width: 100%;
-  padding: 12px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  font-weight: bold;
-  font-size: 16px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background 0.3s;
-  box-sizing: border-box;
-}
-button[disabled] {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-button:hover:not([disabled]) {
-  background-color: #005ec4;
-}
-
-/* Loader Spinner */
-.loader {
-  border: 2px solid #f3f3f3;
-  border-top: 2px solid white;
-  border-radius: 50%;
-  width: 14px;
-  height: 14px;
-  animation: spin 1s linear infinite;
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 8px;
-}
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Toast Notification */
-#toast {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #333;
-  color: #fff;
-  padding: 10px 18px;
-  border-radius: 8px;
-  font-size: 14px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.5s ease;
-  z-index: 999;
-}
-#toast.show {
-  opacity: 1;
-}
-
+/* Back Button */
 .back-btn {
   display: block;
-  margin: 30px auto 10px;
+  margin: 30px auto;
   padding: 10px 20px;
-  background: linear-gradient(135deg, #0060AE, #007bff);
+  background: linear-gradient(135deg, #003d79, #0050a3);
   color: white;
   font-weight: 600;
   font-size: 15px;
@@ -172,47 +92,23 @@ button:hover:not([disabled]) {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 .back-btn:hover {
-  background: linear-gradient(135deg, #0050a3, #006ae3);
+  background: linear-gradient(135deg, #002a5e, #00408d);
   transform: translateY(-1px);
 }
 
-/* Grid Dashboard ala Instagram */
-.grid-wrapper {
-  display: grid;
-  gap: 12px;
-  padding: 20px;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+/* Animasi */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
-.card {
-  background: #fff;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
-
-.card img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-}
-
-.card .info {
-  padding: 10px;
-  font-size: 14px;
-  color: #333;
-}
-
-.card .info p {
-  margin: 4px 0;
-}
-
-.card .view-location {
-  display: block;
-  text-align: center;
-  margin-top: 8px;
-  color: #007bff;
-  text-decoration: none;
-  font-weight: 600;
+/* Responsif */
+@media (max-width: 600px) {
+  .animated-text {
+    font-size: 22px;
+  }
+  .cta-button {
+    width: 90%;
+    font-size: 16px;
+  }
 }
