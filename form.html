@@ -37,67 +37,69 @@
     <h1 class="header-title">Monday Activity<br><span>BRI Branch Office Salatiga</span></h1>
   </header>
 
-  <section class="form-wrapper">
-    <form id="activityForm">
-      <label for="namaPekerja">Nama Pekerja</label>
-      <input type="text" id="namaPekerja" placeholder="Masukkan nama pekerja" required />
+  <main>
+    <section class="form-wrapper">
+      <form id="activityForm">
+        <label for="namaPekerja">Nama Pekerja</label>
+        <input type="text" id="namaPekerja" placeholder="Masukkan nama pekerja" required />
 
-      <label for="pnPekerja">PN Pekerja</label>
-      <input type="text" id="pnPekerja" placeholder="8 digit angka" maxlength="8" inputmode="numeric" pattern="\\d{8}" required />
+        <label for="pnPekerja">PN Pekerja</label>
+        <input type="text" id="pnPekerja" placeholder="8 digit angka" maxlength="8" inputmode="numeric" pattern="\d{8}" required />
 
-      <label for="nasabah">Nama Nasabah</label>
-      <input type="text" id="nasabah" placeholder="Masukkan nama nasabah" required />
+        <label for="nasabah">Nama Nasabah</label>
+        <input type="text" id="nasabah" placeholder="Masukkan nama nasabah" required />
 
-      <label for="noTelepon">No Telepon</label>
-      <input type="tel" id="noTelepon" placeholder="Masukkan nomor telepon" pattern="\\d+" inputmode="numeric" required />
+        <label for="noTelepon">No Telepon</label>
+        <input type="tel" id="noTelepon" placeholder="Masukkan nomor telepon" pattern="\d+" inputmode="numeric" required />
 
-      <label for="refferal">Jenis Referral</label>
-      <select id="refferal" required>
-        <option value="">-- PILIH JENIS REFERRAL --</option>
-        <option>AGEN BRILINK</option>
-        <option>ASURANSI AMKKM</option>
-        <option>ASURANSI AMORA</option>
-        <option>ASURANSI AURORA</option>
-        <option>ASURANSI ASMIK</option>
-        <option>ASURANSI KIRANA</option>
-        <option>ASURANSI LENTERA</option>
-        <option>ASURANSI PERSEDIAAN DAN MESIN</option>
-        <option>ASURANSI PIJAR</option>
-        <option>BANK GARANSI</option>
-        <option>BRIGUNA</option>
-        <option>BRIMO</option>
-        <option>DEPOSITO</option>
-        <option>DPLK</option>
-        <option>EDC</option>
-        <option>KARTU KREDIT</option>
-        <option>KKB</option>
-        <option>KPR</option>
-        <option>KREDIT INVESTASI DIATAS 500 JT</option>
-        <option>KREDIT MODAL KERJA DI ATAS 500 JT</option>
-        <option>KUR MIKRO SD 100 JT</option>
-        <option>KUR RITEL 100-500 JT</option>
-        <option>PAYROLL</option>
-        <option>PROGRAM DEPOSITO</option>
-        <option>PROGRAM TABUNGAN</option>
-        <option>QRIS</option>
-        <option>SIMPANAN</option>
-        <option>TABUNGAN</option>
-      </select>
+        <label for="refferal">Jenis Referral</label>
+        <select id="refferal" required>
+          <option value="">-- PILIH JENIS REFERRAL --</option>
+          <option>AGEN BRILINK</option>
+          <option>ASURANSI AMKKM</option>
+          <option>ASURANSI AMORA</option>
+          <option>ASURANSI AURORA</option>
+          <option>ASURANSI ASMIK</option>
+          <option>ASURANSI KIRANA</option>
+          <option>ASURANSI LENTERA</option>
+          <option>ASURANSI PERSEDIAAN DAN MESIN</option>
+          <option>ASURANSI PIJAR</option>
+          <option>BANK GARANSI</option>
+          <option>BRIGUNA</option>
+          <option>BRIMO</option>
+          <option>DEPOSITO</option>
+          <option>DPLK</option>
+          <option>EDC</option>
+          <option>KARTU KREDIT</option>
+          <option>KKB</option>
+          <option>KPR</option>
+          <option>KREDIT INVESTASI DIATAS 500 JT</option>
+          <option>KREDIT MODAL KERJA DI ATAS 500 JT</option>
+          <option>KUR MIKRO SD 100 JT</option>
+          <option>KUR RITEL 100-500 JT</option>
+          <option>PAYROLL</option>
+          <option>PROGRAM DEPOSITO</option>
+          <option>PROGRAM TABUNGAN</option>
+          <option>QRIS</option>
+          <option>SIMPANAN</option>
+          <option>TABUNGAN</option>
+        </select>
 
-      <label for="informasi">Informasi Tambahan</label>
-      <input type="text" id="informasi" placeholder="Contoh: Wiraswasta, Pegawai, dsb..." required />
+        <label for="informasi">Informasi Tambahan</label>
+        <input type="text" id="informasi" placeholder="Contoh: Wiraswasta, Pegawai, dsb..." required />
 
-      <div class="progress" id="progressText">Lokasi sedang diambil...</div>
-      <div class="progress-bar-wrapper" id="uploadResult"></div>
+        <div class="progress" id="progressText">Lokasi sedang diambil...</div>
+        <div class="progress-bar-wrapper" id="uploadResult"></div>
 
-      <p id="lokasi"></p>
+        <p id="lokasi"></p>
 
-      <button id="submitBtn" type="submit" disabled>
-        <span id="submitText">Submit</span>
-        <span class="loader" id="loaderSubmit" style="display:none;"></span>
-      </button>
-    </form>
-  </section>
+        <button id="submitBtn" type="submit" disabled>
+          <span id="submitText">Submit</span>
+          <span class="loader" id="loaderSubmit" style="display:none;"></span>
+        </button>
+      </form>
+    </section>
+  </main>
 
   <button class="back-btn" onclick="window.location.href='index.html'">&larr; Kembali ke Home</button>
   <div id="toast"></div>
