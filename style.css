@@ -1,52 +1,28 @@
-/* Dasar */
+/* Layout dasar */
 body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
   font-family: 'Segoe UI', Tahoma, sans-serif;
-  background-color: #f4f6f9; /* soft grey modern banking */
+  background-color: #f4f6f9;
   color: #333;
   display: flex;
   flex-direction: column;
 }
 
-/* Header */
-.modern-header {
-  background-color: white;
-  display: flex;
-  align-items: center;
-  padding: 15px 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-}
-.logo-bri {
-  height: 50px;
-  margin-right: 15px;
-  object-fit: contain;
-}
-.header-title {
-  font-size: 20px;
-  font-weight: 600;
-  color: #003c8f; /* warna biru khas BRImo */
-  margin: 0;
-}
-.header-title span {
-  display: block;
-  font-size: 14px;
-  font-weight: normal;
-  color: #555;
-}
-
-/* Main konten */
+/* Pastikan main fleksibel */
 main {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center; /* fix tombol agar center */
   text-align: center;
   padding: 40px 20px;
+  box-sizing: border-box;
 }
+
+/* Teks sambutan */
 .welcome-text {
   font-size: 22px;
   font-weight: 400;
@@ -54,16 +30,12 @@ main {
   margin: 0 auto;
   color: #333;
   opacity: 0;
-  animation: fadeSlide 1.5s forwards 0.3s;
-}
-@keyframes fadeSlide {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
+  animation: fadeSlide 1s forwards 0.1s; /* dipercepat */
 }
 
-/* Tombol */
+/* Tombol lanjutkan */
 .continue-btn {
-  margin-top: 40px;
+  margin-top: 30px;
   padding: 14px 36px;
   background-color: #003c8f;
   color: white;
@@ -75,26 +47,33 @@ main {
   transition: background 0.3s, transform 0.2s;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   opacity: 0;
-  animation: fadeIn 1.2s forwards 1s;
+  animation: fadeIn 0.8s forwards 0.5s; /* animasi tombol dipercepat */
 }
 .continue-btn:hover {
   background-color: #002e6b;
   transform: translateY(-2px);
+}
+
+/* Animasi */
+@keyframes fadeSlide {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
-/* Footer */
+/* Footer selalu terlihat */
 footer {
   text-align: center;
   font-size: 13px;
-  padding: 20px;
+  padding: 16px;
   color: #777;
+  background-color: transparent;
+  flex-shrink: 0; /* pastikan footer tidak tertekan */
 }
 
-/* Responsif */
 @media (max-width: 600px) {
   .welcome-text {
     font-size: 18px;
@@ -102,68 +81,6 @@ footer {
   .continue-btn {
     width: 90%;
     font-size: 16px;
+    padding: 12px 20px;
   }
 }
-
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Monday Activity - Form</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="Brimo samping.png" />
-</head>
-<body>
-  <header class="modern-header">
-    <img src="Brimo samping.png" alt="BRImo" class="logo-bri" />
-    <h1 class="header-title">Monday Activity<br><span>BRI Branch Office Salatiga</span></h1>
-  </header>
-
-  <section class="form-wrapper">
-    <main>
-      <label for="activity">Activity</label>
-      <select id="activity" onchange="validateForm()">
-        <option value="">-- Pilih Activity --</option>
-        <option>OTS PINJAMAN</option>
-        <option>PUS</option>
-        <option>QRIS</option>
-        <option>SIMPANAN</option>
-      </select>
-
-      <label for="pekerja">Nama Pekerja</label>
-      <select id="pekerja" onchange="validateForm()">
-        <option value="">-- Pilih Pekerja --</option>
-        <option>00156802 - EKOWATI CAHYANINGROM</option>
-        <option>00189290 - MEGA BAGUS KURNIAWAN ABADI</option>
-        <option>00189417 - DEDDY NOVIYANTO B.S</option>
-        <option>00213122 - RISKA AGUSTIANA</option>
-        <option>00270609 - SULISTIYO RINI</option>
-        <option>00288133 - GALIH RIO PAMBUDI</option>
-      </select>
-
-      <label for="nasabah">Nama Nasabah / Merchant</label>
-      <input type="text" id="nasabah" placeholder="Tulis nama nasabah..." oninput="validateForm()" />
-
-      <label for="uploadFoto">Foto</label>
-      <input type="file" id="uploadFoto" accept="image/*" multiple capture="environment" onchange="uploadFoto()" />
-
-      <div class="progress" id="progressText">Mengunggah...</div>
-      <div class="progress-bar-wrapper" id="uploadResult"></div>
-
-      <p id="lokasi"></p>
-
-      <button id="submitBtn" onclick="submitData()" disabled>
-        <span id="submitText">Submit</span>
-        <span class="loader" id="loaderSubmit" style="display:none;"></span>
-      </button>
-    </main>
-  </section>
-
-  <button class="back-btn" onclick="window.location.href='index.html'">← Kembali ke Home</button>
-
-  <div id="toast"></div>
-  <script src="script.js"></script>
-</body>
-</html>
-
