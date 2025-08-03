@@ -15,33 +15,55 @@
 
   <section class="form-wrapper">
     <main>
-      <label for="activity">Activity</label>
-      <select id="activity" onchange="validateForm()">
-        <option value="">-- Pilih Activity --</option>
-        <option>OTS PINJAMAN</option>
-        <option>PUS</option>
+      <label for="namaPekerja">Nama Pekerja</label>
+      <input type="text" id="namaPekerja" placeholder="Masukkan nama pekerja" oninput="validateForm()" />
+
+      <label for="pnPekerja">PN Pekerja</label>
+      <input type="text" id="pnPekerja" placeholder="Masukkan PN pekerja" oninput="validateForm()" />
+
+      <label for="nasabah">Nama Nasabah</label>
+      <input type="text" id="nasabah" placeholder="Masukkan nama nasabah" oninput="validateForm()" />
+
+      <label for="noTelepon">No Telepon</label>
+      <input type="tel" id="noTelepon" placeholder="Masukkan nomor telepon" pattern="[0-9]*" inputmode="numeric" oninput="validateForm()" />
+
+      <label for="refferal">Jenis Referral</label>
+      <select id="refferal" onchange="validateForm()">
+        <option value="">-- PILIH JENIS REFERRAL --</option>
+        <option>AGEN BRILINK</option>
+        <option>ASURANSI AMKKM</option>
+        <option>ASURANSI AMORA</option>
+        <option>ASURANSI AURORA</option>
+        <option>ASURANSI ASMIK</option>
+        <option>ASURANSI KIRANA</option>
+        <option>ASURANSI LENTERA</option>
+        <option>ASURANSI PERSEDIAAN DAN MESIN</option>
+        <option>ASURANSI PIJAR</option>
+        <option>BANK GARANSI</option>
+        <option>BRIGUNA</option>
+        <option>BRIMO</option>
+        <option>DEPOSITO</option>
+        <option>DPLK</option>
+        <option>EDC</option>
+        <option>KARTU KREDIT</option>
+        <option>KKB</option>
+        <option>KPR</option>
+        <option>KREDIT INVESTASI DIATAS 500 JT</option>
+        <option>KREDIT MODAL KERJA DI ATAS 500 JT</option>
+        <option>KUR MIKRO SD 100 JT</option>
+        <option>KUR RITEL 100-500 JT</option>
+        <option>PAYROLL</option>
+        <option>PROGRAM DEPOSITO</option>
+        <option>PROGRAM TABUNGAN</option>
         <option>QRIS</option>
         <option>SIMPANAN</option>
+        <option>TABUNGAN</option>
       </select>
 
-      <label for="pekerja">Nama Pekerja</label>
-      <select id="pekerja" onchange="validateForm()">
-        <option value="">-- Pilih Pekerja --</option>
-        <option>00156802 - EKOWATI CAHYANINGROM</option>
-        <option>00189290 - MEGA BAGUS KURNIAWAN ABADI</option>
-        <option>00189417 - DEDDY NOVIYANTO B.S</option>
-        <option>00213122 - RISKA AGUSTIANA</option>
-        <option>00270609 - SULISTIYO RINI</option>
-        <option>00288133 - GALIH RIO PAMBUDI</option>
-      </select>
+      <label for="informasi">Informasi Tambahan</label>
+      <input type="text" id="informasi" placeholder="Contoh: Wiraswasta, Pegawai, dsb..." oninput="validateForm()" />
 
-      <label for="nasabah">Nama Nasabah / Merchant</label>
-      <input type="text" id="nasabah" placeholder="Tulis nama nasabah..." oninput="validateForm()" />
-
-      <label for="uploadFoto">Foto</label>
-      <input type="file" id="uploadFoto" accept="image/*" multiple capture="environment" onchange="uploadFoto()" />
-
-      <div class="progress" id="progressText">Mengunggah...</div>
+      <div class="progress" id="progressText">Lokasi sedang diambil...</div>
       <div class="progress-bar-wrapper" id="uploadResult"></div>
 
       <p id="lokasi"></p>
