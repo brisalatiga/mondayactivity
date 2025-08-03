@@ -3,46 +3,60 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Form Aktivitas BRI</title>
+  <title>Daily Activity - Input</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="Brimo samping.png" />
+  <link rel="icon" href="white%20BRI_2020.svg.png" />
 </head>
 <body>
-  <div class="form-container">
-    <div class="form-header">
-      <img src="Brimo samping.png" alt="BRIMO Logo" class="brimo-logo-small" />
-      <h1>Form Input Aktivitas</h1>
+  <header>
+    <img src="white%20BRI_2020.svg.png" alt="BRI" class="logo-bri" />
+    <div>
+      <h1>Daily Activity<br><span>BRI Unit Susukan</span></h1>
     </div>
+  </header>
 
-    <form id="aktivitasForm">
-      <label for="nama">Nama Pekerja:</label>
-      <input type="text" id="nama" name="nama" placeholder="Masukkan nama anda" required />
-
-      <label for="aktivitas">Aktivitas:</label>
-      <select id="aktivitas" name="aktivitas" required>
-        <option value="">--Pilih Aktivitas--</option>
-        <option value="Kunjungan Nasabah">Kunjungan Nasabah</option>
-        <option value="Prospek Kredit">Prospek Kredit</option>
-        <option value="Survey Agunan">Survey Agunan</option>
-        <option value="Aktivitas Lainnya">Aktivitas Lainnya</option>
+  <section class="form-wrapper">
+    <main>
+      <label for="activity">Activity</label>
+      <select id="activity" onchange="validateForm()">
+        <option value="">-- Pilih Activity --</option>
+        <option>OTS PINJAMAN</option>
+        <option>PUS</option>
+        <option>QRIS</option>
+        <option>SIMPANAN</option>
       </select>
 
-      <label for="nasabah">Nama Nasabah:</label>
-      <input type="text" id="nasabah" name="nasabah" placeholder="Nama nasabah (jika ada)" />
+      <label for="pekerja">Nama Pekerja</label>
+      <select id="pekerja" onchange="validateForm()">
+        <option value="">-- Pilih Pekerja --</option>
+        <option>00156802 - EKOWATI CAHYANINGROM</option>
+        <option>00189290 - MEGA BAGUS KURNIAWAN ABADI</option>
+        <option>00189417 - DEDDY NOVIYANTO B.S</option>
+        <option>00213122 - RISKA AGUSTIANA</option>
+        <option>00270609 - SULISTIYO RINI</option>
+        <option>00288133 - GALIH RIO PAMBUDI</option>
+      </select>
 
-      <label for="foto">Upload Foto:</label>
-      <input type="file" id="foto" name="foto" accept="image/*" required />
+      <label for="nasabah">Nama Nasabah / Merchant</label>
+      <input type="text" id="nasabah" placeholder="Tulis nama nasabah..." oninput="validateForm()" />
 
-      <button type="submit" class="submit-btn">Submit</button>
-    </form>
-  </div>
+      <label for="uploadFoto">Foto</label>
+      <input type="file" id="uploadFoto" accept="image/*" multiple capture="environment" onchange="uploadFoto()" />
 
-  <script>
-    document.getElementById("aktivitasForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      alert("Data berhasil dikirim! (Simulasi)");
-      this.reset();
-    });
-  </script>
+      <div class="progress" id="progressText" style="display: none;">Mengunggah...</div>
+      <div class="progress-bar-wrapper" id="uploadResult"></div>
+
+      <p id="lokasi"></p>
+
+      <button id="submitBtn" onclick="submitData()" disabled>
+        <span id="submitText">Submit</span>
+        <span class="loader" id="loaderSubmit" style="display:none;"></span>
+      </button>
+    </main>
+  </section>
+<button class="back-btn" onclick="window.location.href='index.html'">← Kembali ke Home</button>
+
+  <div id="toast"></div>
+  <script src="script.js"></script>
 </body>
 </html>
