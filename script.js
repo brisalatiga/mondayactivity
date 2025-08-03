@@ -87,37 +87,34 @@ function submitData() {
   const btn = document.getElementById("submitBtn");
   const loader = document.getElementById("loaderSubmit");
   const text = document.getElementById("submitText");
-  const progressBarWrapper = document.getElementById("uploadResult");
 
   btn.disabled = true;
   loader.style.display = "inline-block";
   text.textContent = "Mengirim...";
-  progressBarWrapper.innerText = "Mengirim...";
 
-  const data = new URLSearchParams();
-  data.append("pekerja", document.getElementById("namaPekerja").value);
-  data.append("pn", document.getElementById("pnPekerja").value);
-  data.append("nasabah", document.getElementById("nasabah").value);
-  data.append("telepon", document.getElementById("noTelepon").value);
-  data.append("refferal", document.getElementById("refferal").value);
-  data.append("informasi", document.getElementById("informasi").value);
-  data.append("latitude", currentLatitude);
-  data.append("longitude", currentLongitude);
+  const formData = new FormData();
+  formData.append("pekerja", document.getElementById("namaPekerja").value);
+  formData.append("pn", document.getElementById("pnPekerja").value);
+  formData.append("nasabah", document.getElementById("nasabah").value);
+  formData.append("telepon", document.getElementById("noTelepon").value);
+  formData.append("refferal", document.getElementById("refferal").value);
+  formData.append("informasi", document.getElementById("informasi").value);
+  formData.append("latitude", currentLatitude);
+  formData.append("longitude", currentLongitude);
 
-  fetch("https://script.google.com/macros/s/AKfycbxj3eNy-LaCcVUwOUSzpcJ5kerHxTuXantWmzjiZE-p9U3dEM1ewnHE36QGnyKkLlg/exec" + data.toString())
+  fetch("https://script.google.com/macros/s/AKfycbxQ-Ax5Mqgq5UohAX2r4dpdN4Caqa8s2qvcOxwfcGzhVW-MQY42G5m5SGQCm3fk8hqJXA/exec", {
+    method: "POST",
+    body: formData
+  })
     .then(res => res.text())
     .then(msg => {
       showToast("✅ " + msg);
-      progressBarWrapper.innerText = "✅ Data berhasil dikirim.";
       resetForm();
     })
-    .catch(err => {
-      showToast("❌ Gagal simpan: " + err, false);
-      progressBarWrapper.innerText = "❌ Gagal mengirim data.";
-      btn.disabled = false;
-    })
+    .catch(err => showToast("❌ Gagal simpan: " + err, false))
     .finally(() => {
       text.textContent = "Submit";
       loader.style.display = "none";
     });
 }
+
