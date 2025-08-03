@@ -82,19 +82,24 @@ function resetForm() {
   currentLongitude = null;
   initLocation();
 }
-
 function submitData() {
   const btn = document.getElementById("submitBtn");
   const loader = document.getElementById("loaderSubmit");
   const text = document.getElementById("submitText");
-  const progressBar = document.getElementById("uploadResult");
+  const progressWrapper = document.getElementById("uploadResult");
 
+  // Mulai submit
   btn.disabled = true;
   loader.style.display = "inline-block";
   text.textContent = "Mengirim...";
 
-  // Tampilkan progress awal
-  progressBar.innerHTML = `<div class="progress-bar" id="bar" style="width: 20%"></div>`;
+  // Buat elemen progress bar
+  progressWrapper.innerHTML = `<div class="progress-bar" id="bar" style="width: 0%"></div>`;
+  const bar = document.getElementById("bar");
+
+  // Simulasi naik pelan-pelan
+  setTimeout(() => bar.style.width = "30%", 200);
+  setTimeout(() => bar.style.width = "60%", 600);
 
   const formData = new FormData();
   formData.append("pekerja", document.getElementById("namaPekerja").value);
@@ -110,17 +115,14 @@ function submitData() {
     method: "POST",
     body: formData
   })
-    .then(res => {
-      // Simulasikan progress hingga 100%
-      progressBar.innerHTML = `<div class="progress-bar" style="width: 100%"></div>`;
-      return res.text();
-    })
+    .then(res => res.text())
     .then(msg => {
+      bar.style.width = "100%";
       showToast("✅ " + msg);
-      resetForm();
+      setTimeout(resetForm, 1000); // biar progress 100% terlihat dulu
     })
     .catch(err => {
-      progressBar.innerHTML = "";
+      progressWrapper.innerHTML = "";
       showToast("❌ Gagal simpan: " + err, false);
     })
     .finally(() => {
@@ -128,5 +130,4 @@ function submitData() {
       loader.style.display = "none";
     });
 }
-
 
