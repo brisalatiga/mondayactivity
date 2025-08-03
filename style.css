@@ -1,86 +1,198 @@
-/* Layout dasar */
-body {
+/* RESET */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* BODY */
+body {
+  background: linear-gradient(to bottom right, #0070BA, #003C8F);
+  color: #fff;
   min-height: 100vh;
-  font-family: 'Segoe UI', Tahoma, sans-serif;
-  background-color: #f4f6f9;
-  color: #333;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
-/* Pastikan main fleksibel */
-main {
-  flex: 1;
+/* HEADER */
+header {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; /* fix tombol agar center */
-  text-align: center;
-  padding: 40px 20px;
-  box-sizing: border-box;
+  align-items: center;
+  padding: 16px;
+  width: 100%;
+  max-width: 500px;
 }
 
-/* Teks sambutan */
-.welcome-text {
-  font-size: 22px;
-  font-weight: 400;
-  max-width: 700px;
+header img {
+  width: 60px;
+  height: auto;
+  margin-right: 16px;
+}
+
+header h1 {
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+header h1 span {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* FORM WRAPPER */
+.form-wrapper {
+  background-color: #ffffff;
+  color: #000;
+  width: 100%;
+  max-width: 500px;
   margin: 0 auto;
-  color: #333;
-  opacity: 0;
-  animation: fadeSlide 1s forwards 0.1s; /* dipercepat */
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Tombol lanjutkan */
-.continue-btn {
-  margin-top: 30px;
-  padding: 14px 36px;
-  background-color: #003c8f;
+/* FORM ELEMENTS */
+main label {
+  display: block;
+  margin-top: 16px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+main input[type="text"],
+main select,
+main input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* PROGRESS */
+.progress {
+  margin-top: 16px;
+  color: #333;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.progress-bar-wrapper {
+  margin-top: 10px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: #eee;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #0070BA;
+  width: 0%;
+}
+
+/* LOKASI */
+#lokasi {
+  margin-top: 16px;
+  font-size: 14px;
+  color: #0070BA;
+}
+
+/* SUBMIT BUTTON */
+button#submitBtn {
+  width: 100%;
+  margin-top: 24px;
+  background-color: #0070BA;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+}
+
+button#submitBtn:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+button#submitBtn .loader {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border: 2px solid #fff;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+/* BACK BUTTON */
+.back-btn {
+  background: transparent;
   color: white;
   border: none;
-  border-radius: 10px;
-  font-size: 18px;
-  font-weight: 600;
+  margin: 24px auto 16px;
+  font-size: 16px;
   cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  opacity: 0;
-  animation: fadeIn 0.8s forwards 0.5s; /* animasi tombol dipercepat */
-}
-.continue-btn:hover {
-  background-color: #002e6b;
-  transform: translateY(-2px);
+  text-decoration: underline;
 }
 
-/* Animasi */
-@keyframes fadeSlide {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-/* Footer selalu terlihat */
-footer {
-  text-align: center;
-  font-size: 13px;
-  padding: 16px;
-  color: #777;
-  background-color: transparent;
-  flex-shrink: 0; /* pastikan footer tidak tertekan */
+/* TOAST */
+#toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #323232;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  display: none;
+  z-index: 999;
 }
 
-@media (max-width: 600px) {
-  .welcome-text {
+/* RESPONSIVE */
+@media screen and (max-width: 500px) {
+  .form-wrapper {
+    border-radius: 0;
+    padding: 16px;
+  }
+
+  header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  header img {
+    width: 50px;
+  }
+
+  header h1 {
     font-size: 18px;
   }
-  .continue-btn {
-    width: 90%;
-    font-size: 16px;
-    padding: 12px 20px;
+
+  header h1 span {
+    font-size: 12px;
   }
 }
