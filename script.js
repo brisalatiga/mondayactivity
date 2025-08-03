@@ -1,5 +1,3 @@
-// script.js FINAL
-
 let currentLatitude = null;
 let currentLongitude = null;
 
@@ -41,14 +39,10 @@ function validateForm() {
   const form = document.getElementById("activityForm");
   const submitBtn = document.getElementById("submitBtn");
 
-  const pn = document.getElementById("pnPekerja").value;
-  const isValidPN = /^\d{8}$/.test(pn);
-
   if (
     form.checkValidity() &&
     currentLatitude !== null &&
-    currentLongitude !== null &&
-    isValidPN
+    currentLongitude !== null
   ) {
     submitBtn.disabled = false;
   } else {
@@ -62,7 +56,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   inputs.forEach((el) => {
     el.addEventListener("input", validateForm);
-    el.addEventListener("change", validateForm);
+    el.addEventListener("change", (e) => {
+      validateForm();
+      if (el.id === "refferal") {
+        initLocation();
+      }
+    });
   });
 
   form.addEventListener("submit", (e) => {
@@ -70,8 +69,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!form.checkValidity()) return;
     submitData();
   });
-
-  initLocation();
 });
 
 function resetForm() {
@@ -80,7 +77,6 @@ function resetForm() {
   document.getElementById("lokasi").textContent = "";
   currentLatitude = null;
   currentLongitude = null;
-  initLocation();
 }
 
 function submitData() {
