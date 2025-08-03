@@ -14,6 +14,9 @@ function initLocation() {
   const lokasiText = document.getElementById("lokasi");
   const progress = document.getElementById("progressText");
 
+  progress.style.display = "block";
+  progress.textContent = "Mengambil lokasi...";
+
   if ("geolocation" in navigator) {
     navigator.geolocation.getCurrentPosition(
       (pos) => {
@@ -25,12 +28,14 @@ function initLocation() {
       },
       (err) => {
         lokasiText.textContent = "❌ Lokasi tidak bisa diakses.";
+        progress.textContent = "Gagal ambil lokasi.";
         showToast("❌ Gagal ambil lokasi: " + err.message, false);
       },
       { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
     );
   } else {
     lokasiText.textContent = "❌ Geolocation tidak didukung.";
+    progress.textContent = "Geolocation tidak tersedia.";
     showToast("❌ Geolocation tidak didukung.", false);
   }
 }
@@ -51,17 +56,13 @@ function validateForm() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  initLocation(); // ambil lokasi saat halaman dimuat
   const form = document.getElementById("activityForm");
   const inputs = form.querySelectorAll("input, select");
 
   inputs.forEach((el) => {
     el.addEventListener("input", validateForm);
-    el.addEventListener("change", (e) => {
-      validateForm();
-      if (el.id === "refferal") {
-        initLocation();
-      }
-    });
+    el.addEventListener("change", validateForm);
   });
 
   form.addEventListener("submit", (e) => {
@@ -75,18 +76,23 @@ function resetForm() {
   document.getElementById("activityForm").reset();
   document.getElementById("submitBtn").disabled = true;
   document.getElementById("lokasi").textContent = "";
+  document.getElementById("progressText").style.display = "none";
+  document.getElementById("uploadResult").innerText = "";
   currentLatitude = null;
   currentLongitude = null;
+  initLocation();
 }
 
 function submitData() {
   const btn = document.getElementById("submitBtn");
   const loader = document.getElementById("loaderSubmit");
   const text = document.getElementById("submitText");
+  const progressBarWrapper = document.getElementById("uploadResult");
 
   btn.disabled = true;
   loader.style.display = "inline-block";
   text.textContent = "Mengirim...";
+  progressBarWrapper.innerText = "Mengirim...";
 
   const data = new URLSearchParams();
   data.append("pekerja", document.getElementById("namaPekerja").value);
@@ -98,13 +104,18 @@ function submitData() {
   data.append("latitude", currentLatitude);
   data.append("longitude", currentLongitude);
 
-  fetch("https://script.google.com/macros/s/AKfycbxQ-Ax5Mqgq5UohAX2r4dpdN4Caqa8s2qvcOxwfcGzhVW-MQY42G5m5SGQCm3fk8hqJXA/exec" + data.toString())
+  fetch("https://script.google.com/macros/s/AKfycbxQ-Ax5Mqgq5UohAX2r4dpdN4Caqa8s2qvcOxwfcGzhVW-MQY42G5m5SGQCm3fk8hqJXA/exec?" + data.toString())
     .then(res => res.text())
     .then(msg => {
       showToast("✅ " + msg);
+      progressBarWrapper.innerText = "✅ Data berhasil dikirim.";
       resetForm();
     })
-    .catch(err => showToast("❌ Gagal simpan: " + err, false))
+    .catch(err => {
+      showToast("❌ Gagal simpan: " + err, false);
+      progressBarWrapper.innerText = "❌ Gagal mengirim data.";
+      btn.disabled = false;
+    })
     .finally(() => {
       text.textContent = "Submit";
       loader.style.display = "none";
