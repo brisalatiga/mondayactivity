@@ -12,10 +12,10 @@ header {
   display: flex;
   align-items: center;
   padding: 20px;
-  background: linear-gradient(135deg, #0060AE, #007bff);
+  background: #003c8f; /* biru BRImo */
   color: white;
   border-radius: 0 0 30px 30px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .logo-bri {
@@ -42,9 +42,9 @@ header h1 span {
   margin: 20px auto;
   padding: 20px;
   max-width: 400px;
-  background-color: #f0f2f5;
+  background-color: white; /* bersih & kontras */
   border-radius: 15px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Label dan Field */
@@ -92,7 +92,7 @@ main input[type="file"] {
 .progress-bar {
   height: 100%;
   width: 0%;
-  background: linear-gradient(to right, #00c6ff, #0072ff);
+  background: linear-gradient(to right, #ff6600, #ff8800); /* aksen oranye gradasi */
   transition: width 0.4s ease;
 }
 
@@ -101,7 +101,7 @@ button {
   margin-top: 25px;
   width: 100%;
   padding: 12px;
-  background-color: #007bff;
+  background-color: #ff6600; /* oranye aksen BRImo */
   color: white;
   border: none;
   font-weight: bold;
@@ -116,7 +116,7 @@ button[disabled] {
   cursor: not-allowed;
 }
 button:hover:not([disabled]) {
-  background-color: #005ec4;
+  background-color: #e65500;
 }
 
 /* Loader Spinner */
@@ -142,8 +142,8 @@ button:hover:not([disabled]) {
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #333;
-  color: #fff;
+  background-color: #003c8f; /* biru BRImo */
+  color: white;
   padding: 10px 18px;
   border-radius: 8px;
   font-size: 14px;
@@ -156,11 +156,12 @@ button:hover:not([disabled]) {
   opacity: 1;
 }
 
+/* Tombol Back */
 .back-btn {
   display: block;
   margin: 30px auto 10px;
   padding: 10px 20px;
-  background: linear-gradient(135deg, #0060AE, #007bff);
+  background: #003c8f; /* biru BRImo */
   color: white;
   font-weight: 600;
   font-size: 15px;
@@ -168,51 +169,4 @@ button:hover:not([disabled]) {
   border-radius: 12px;
   cursor: pointer;
   transition: background 0.3s, transform 0.2s;
-  width: fit-content;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-.back-btn:hover {
-  background: linear-gradient(135deg, #0050a3, #006ae3);
-  transform: translateY(-1px);
-}
-
-/* Grid Dashboard ala Instagram */
-.grid-wrapper {
-  display: grid;
-  gap: 12px;
-  padding: 20px;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-}
-
-.card {
-  background: #fff;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
-
-.card img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-}
-
-.card .info {
-  padding: 10px;
-  font-size: 14px;
-  color: #333;
-}
-
-.card .info p {
-  margin: 4px 0;
-}
-
-.card .view-location {
-  display: block;
-  text-align: center;
-  margin-top: 8px;
-  color: #007bff;
-  text-decoration: none;
-  font-weight: 600;
-}
+  width: fit-conte
