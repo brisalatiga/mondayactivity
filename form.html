@@ -3,60 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Daily Activity - Input</title>
+  <title>Form Aktivitas</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="white%20BRI_2020.svg.png" />
+  <link rel="icon" href="brimo.png" />
 </head>
 <body>
   <header>
-    <img src="white%20BRI_2020.svg.png" alt="BRI" class="logo-bri" />
-    <div>
-      <h1>Daily Activity<br><span>BRI Unit Susukan</span></h1>
-    </div>
+    <img src="brimo.png" alt="Brimo" class="logo-brimo" />
+    <h1>Monday Activity<br><span>BRI Branch Office Salatiga</span></h1>
   </header>
 
   <section class="form-wrapper">
     <main>
-      <label for="activity">Activity</label>
-      <select id="activity" onchange="validateForm()">
-        <option value="">-- Pilih Activity --</option>
-        <option>OTS PINJAMAN</option>
-        <option>PUS</option>
-        <option>QRIS</option>
-        <option>SIMPANAN</option>
-      </select>
-
-      <label for="pekerja">Nama Pekerja</label>
-      <select id="pekerja" onchange="validateForm()">
-        <option value="">-- Pilih Pekerja --</option>
-        <option>00156802 - EKOWATI CAHYANINGROM</option>
-        <option>00189290 - MEGA BAGUS KURNIAWAN ABADI</option>
-        <option>00189417 - DEDDY NOVIYANTO B.S</option>
-        <option>00213122 - RISKA AGUSTIANA</option>
-        <option>00270609 - SULISTIYO RINI</option>
-        <option>00288133 - GALIH RIO PAMBUDI</option>
-      </select>
-
-      <label for="nasabah">Nama Nasabah / Merchant</label>
-      <input type="text" id="nasabah" placeholder="Tulis nama nasabah..." oninput="validateForm()" />
-
-      <label for="uploadFoto">Foto</label>
-      <input type="file" id="uploadFoto" accept="image/*" multiple capture="environment" onchange="uploadFoto()" />
-
-      <div class="progress" id="progressText" style="display: none;">Mengunggah...</div>
-      <div class="progress-bar-wrapper" id="uploadResult"></div>
-
-      <p id="lokasi"></p>
-
-      <button id="submitBtn" onclick="submitData()" disabled>
-        <span id="submitText">Submit</span>
-        <span class="loader" id="loaderSubmit" style="display:none;"></span>
-      </button>
+      <!-- Isi form Anda di sini -->
+      <p>Form input aktivitas akan diletakkan di sini.</p>
     </main>
   </section>
-<button class="back-btn" onclick="window.location.href='index.html'">← Kembali ke Home</button>
 
-  <div id="toast"></div>
-  <script src="script.js"></script>
+  <button class="back-btn" onclick="window.location.href='index.html'">← Kembali ke Home</button>
 </body>
 </html>
