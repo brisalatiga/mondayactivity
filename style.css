@@ -1,52 +1,71 @@
-/* Layout dasar */
+/* Dasar */
 body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background-color: #f4f6f9; /* soft grey modern banking */
+  color: #333;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  margin: 0;
-  background: linear-gradient(135deg, #003c8f, #001f4d);
-  color: white;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  overflow-x: hidden;
 }
 
 /* Header */
-header.animated-header {
+.modern-header {
+  background-color: white;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 20px;
-  animation: slideDown 1s ease-out;
+  padding: 15px 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 .logo-bri {
   height: 50px;
+  margin-right: 15px;
   object-fit: contain;
 }
+.header-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #003c8f; /* warna biru khas BRImo */
+  margin: 0;
+}
+.header-title span {
+  display: block;
+  font-size: 14px;
+  font-weight: normal;
+  color: #555;
+}
 
-/* Konten Utama */
+/* Main konten */
 main {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  padding: 0 20px;
+  padding: 40px 20px;
 }
-.welcome-text.animated-text {
-  font-size: 20px;
+.welcome-text {
+  font-size: 22px;
   font-weight: 400;
-  line-height: 1.5;
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto;
+  color: #333;
   opacity: 0;
-  animation: fadeScaleUp 1.5s forwards 0.5s; /* animasi dengan delay */
+  animation: fadeSlide 1.5s forwards 0.3s;
+}
+@keyframes fadeSlide {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
-/* Tombol Lanjutkan */
+/* Tombol */
 .continue-btn {
   margin-top: 40px;
-  padding: 14px 32px;
-  background-color: #ff6600;
+  padding: 14px 36px;
+  background-color: #003c8f;
   color: white;
   border: none;
   border-radius: 10px;
@@ -54,39 +73,30 @@ main {
   font-weight: 600;
   cursor: pointer;
   transition: background 0.3s, transform 0.2s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   opacity: 0;
-  animation: fadeIn 1s forwards 1.8s; /* tombol muncul setelah teks selesai animasi */
+  animation: fadeIn 1.2s forwards 1s;
 }
 .continue-btn:hover {
-  background-color: #e65500;
+  background-color: #002e6b;
   transform: translateY(-2px);
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* Footer */
 footer {
   text-align: center;
-  font-size: 12px;
+  font-size: 13px;
   padding: 20px;
-  color: #ccc;
-}
-
-/* Animasi Keyframes */
-@keyframes slideDown {
-  0% {opacity: 0; transform: translateY(-50px);}
-  100% {opacity: 1; transform: translateY(0);}
-}
-@keyframes fadeScaleUp {
-  0% {opacity: 0; transform: scale(0.8) translateY(30px);}
-  100% {opacity: 1; transform: scale(1) translateY(0);}
-}
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
+  color: #777;
 }
 
 /* Responsif */
 @media (max-width: 600px) {
-  .welcome-text.animated-text {
+  .welcome-text {
     font-size: 18px;
   }
   .continue-btn {
