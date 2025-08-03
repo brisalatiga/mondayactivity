@@ -1,4 +1,3 @@
-<!-- form.html -->
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -39,21 +38,21 @@
   </header>
 
   <section class="form-wrapper">
-    <main>
+    <form id="activityForm">
       <label for="namaPekerja">Nama Pekerja</label>
-      <input type="text" id="namaPekerja" placeholder="Masukkan nama pekerja" oninput="validateForm()" />
+      <input type="text" id="namaPekerja" placeholder="Masukkan nama pekerja" required />
 
       <label for="pnPekerja">PN Pekerja</label>
-      <input type="text" id="pnPekerja" placeholder="8 digit angka" pattern="\\d{8}" maxlength="8" inputmode="numeric" oninput="validateForm()" />
+      <input type="text" id="pnPekerja" placeholder="8 digit angka" maxlength="8" inputmode="numeric" pattern="\\d{8}" required />
 
       <label for="nasabah">Nama Nasabah</label>
-      <input type="text" id="nasabah" placeholder="Masukkan nama nasabah" oninput="validateForm()" />
+      <input type="text" id="nasabah" placeholder="Masukkan nama nasabah" required />
 
       <label for="noTelepon">No Telepon</label>
-      <input type="tel" id="noTelepon" placeholder="Masukkan nomor telepon" pattern="\\d+" inputmode="numeric" oninput="validateForm()" />
+      <input type="tel" id="noTelepon" placeholder="Masukkan nomor telepon" pattern="\\d+" inputmode="numeric" required />
 
       <label for="refferal">Jenis Referral</label>
-      <select id="refferal" onchange="validateForm()">
+      <select id="refferal" required>
         <option value="">-- PILIH JENIS REFERRAL --</option>
         <option>AGEN BRILINK</option>
         <option>ASURANSI AMKKM</option>
@@ -86,18 +85,18 @@
       </select>
 
       <label for="informasi">Informasi Tambahan</label>
-      <input type="text" id="informasi" placeholder="Contoh: Wiraswasta, Pegawai, dsb..." oninput="validateForm()" />
+      <input type="text" id="informasi" placeholder="Contoh: Wiraswasta, Pegawai, dsb..." required />
 
       <div class="progress" id="progressText">Lokasi sedang diambil...</div>
       <div class="progress-bar-wrapper" id="uploadResult"></div>
 
       <p id="lokasi"></p>
 
-      <button id="submitBtn" onclick="submitData()" disabled>
+      <button id="submitBtn" type="submit" disabled>
         <span id="submitText">Submit</span>
         <span class="loader" id="loaderSubmit" style="display:none;"></span>
       </button>
-    </main>
+    </form>
   </section>
 
   <button class="back-btn" onclick="window.location.href='index.html'">&larr; Kembali ke Home</button>
