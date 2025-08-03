@@ -1,61 +1,106 @@
-<section class="form-wrapper">
-  <form id="activityForm">
-    <label for="namaPekerja">Nama Pekerja</label>
-    <input type="text" id="namaPekerja" placeholder="Masukkan nama pekerja" required />
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Monday Activity - Form</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="Brimo samping.png" />
+  <style>
+    main label {
+      font-weight: 600;
+      margin-top: 10px;
+      display: block;
+    }
+    main input,
+    main select {
+      width: 100%;
+      max-width: 400px;
+      padding: 10px;
+      font-size: 14px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <header class="modern-header">
+    <img src="Brimo samping.png" alt="BRImo" class="logo-bri" />
+    <h1 class="header-title">Monday Activity<br><span>BRI Branch Office Salatiga</span></h1>
+  </header>
 
-    <label for="pnPekerja">PN Pekerja</label>
-    <input type="text" id="pnPekerja" placeholder="8 digit angka" maxlength="8" inputmode="numeric" pattern="\d{8}" required />
+  <section class="form-wrapper">
+    <form id="activityForm">
+      <label for="namaPekerja">Nama Pekerja</label>
+      <input type="text" id="namaPekerja" placeholder="Masukkan nama pekerja" required />
 
-    <label for="nasabah">Nama Nasabah</label>
-    <input type="text" id="nasabah" placeholder="Masukkan nama nasabah" required />
+      <label for="pnPekerja">PN Pekerja</label>
+      <input type="text" id="pnPekerja" placeholder="8 digit angka" maxlength="8" inputmode="numeric" pattern="\\d{8}" required />
 
-    <label for="noTelepon">No Telepon</label>
-    <input type="tel" id="noTelepon" placeholder="Masukkan nomor telepon" pattern="\d+" inputmode="numeric" required />
+      <label for="nasabah">Nama Nasabah</label>
+      <input type="text" id="nasabah" placeholder="Masukkan nama nasabah" required />
 
-    <label for="refferal">Jenis Referral</label>
-    <select id="refferal" required>
-      <option value="">-- PILIH JENIS REFERRAL --</option>
-      <option>AGEN BRILINK</option>
-      <option>ASURANSI AMKKM</option>
-      <option>ASURANSI AMORA</option>
-      <option>ASURANSI AURORA</option>
-      <option>ASURANSI ASMIK</option>
-      <option>ASURANSI KIRANA</option>
-      <option>ASURANSI LENTERA</option>
-      <option>ASURANSI PERSEDIAAN DAN MESIN</option>
-      <option>ASURANSI PIJAR</option>
-      <option>BANK GARANSI</option>
-      <option>BRIGUNA</option>
-      <option>BRIMO</option>
-      <option>DEPOSITO</option>
-      <option>DPLK</option>
-      <option>EDC</option>
-      <option>KARTU KREDIT</option>
-      <option>KKB</option>
-      <option>KPR</option>
-      <option>KREDIT INVESTASI DIATAS 500 JT</option>
-      <option>KREDIT MODAL KERJA DI ATAS 500 JT</option>
-      <option>KUR MIKRO SD 100 JT</option>
-      <option>KUR RITEL 100-500 JT</option>
-      <option>PAYROLL</option>
-      <option>PROGRAM DEPOSITO</option>
-      <option>PROGRAM TABUNGAN</option>
-      <option>QRIS</option>
-      <option>SIMPANAN</option>
-      <option>TABUNGAN</option>
-    </select>
+      <label for="noTelepon">No Telepon</label>
+      <input type="tel" id="noTelepon" placeholder="Masukkan nomor telepon" pattern="\\d+" inputmode="numeric" required />
 
-    <label for="informasi">Informasi Tambahan</label>
-    <input type="text" id="informasi" placeholder="Contoh: Wiraswasta, Pegawai, dsb..." required />
+      <label for="refferal">Jenis Referral</label>
+      <select id="refferal" required>
+        <option value="">-- PILIH JENIS REFERRAL --</option>
+        <option>AGEN BRILINK</option>
+        <option>ASURANSI AMKKM</option>
+        <option>ASURANSI AMORA</option>
+        <option>ASURANSI AURORA</option>
+        <option>ASURANSI ASMIK</option>
+        <option>ASURANSI KIRANA</option>
+        <option>ASURANSI LENTERA</option>
+        <option>ASURANSI PERSEDIAAN DAN MESIN</option>
+        <option>ASURANSI PIJAR</option>
+        <option>BANK GARANSI</option>
+        <option>BRIGUNA</option>
+        <option>BRIMO</option>
+        <option>DEPOSITO</option>
+        <option>DPLK</option>
+        <option>EDC</option>
+        <option>KARTU KREDIT</option>
+        <option>KKB</option>
+        <option>KPR</option>
+        <option>KREDIT INVESTASI DIATAS 500 JT</option>
+        <option>KREDIT MODAL KERJA DI ATAS 500 JT</option>
+        <option>KUR MIKRO SD 100 JT</option>
+        <option>KUR RITEL 100-500 JT</option>
+        <option>PAYROLL</option>
+        <option>PROGRAM DEPOSITO</option>
+        <option>PROGRAM TABUNGAN</option>
+        <option>QRIS</option>
+        <option>SIMPANAN</option>
+        <option>TABUNGAN</option>
+      </select>
 
-    <div class="progress" id="progressText">Lokasi sedang diambil...</div>
-    <div class="progress-bar-wrapper" id="uploadResult"></div>
+      <label for="informasi">Informasi Tambahan</label>
+      <input type="text" id="informasi" placeholder="Contoh: Wiraswasta, Pegawai, dsb..." required />
 
-    <p id="lokasi"></p>
+      <div class="progress" id="progressText">Lokasi sedang diambil...</div>
+      <div class="progress-bar-wrapper" id="uploadResult"></div>
 
-    <button id="submitBtn" type="submit" disabled>
-      <span id="submitText">Submit</span>
-      <span class="loader" id="loaderSubmit" style="display:none;"></span>
-    </button>
-  </form>
-</section>
+      <p id="lokasi"></p>
+
+      <button id="submitBtn" type="submit" disabled>
+        <span id="submitText">Submit</span>
+        <span class="loader" id="loaderSubmit" style="display:none;"></span>
+      </button>
+    </form>
+  </section>
+
+  <button class="back-btn" onclick="window.location.href='index.html'">&larr; Kembali ke Home</button>
+  <div id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
