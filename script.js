@@ -1,3 +1,5 @@
+// script.js FINAL
+
 let currentLatitude = null;
 let currentLongitude = null;
 
@@ -39,10 +41,14 @@ function validateForm() {
   const form = document.getElementById("activityForm");
   const submitBtn = document.getElementById("submitBtn");
 
+  const pn = document.getElementById("pnPekerja").value;
+  const isValidPN = /^\d{8}$/.test(pn);
+
   if (
     form.checkValidity() &&
     currentLatitude !== null &&
-    currentLongitude !== null
+    currentLongitude !== null &&
+    isValidPN
   ) {
     submitBtn.disabled = false;
   } else {
@@ -54,7 +60,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("activityForm");
   const inputs = form.querySelectorAll("input, select");
 
-  // Enable/disable tombol submit berdasarkan isian
   inputs.forEach((el) => {
     el.addEventListener("input", validateForm);
     el.addEventListener("change", validateForm);
@@ -66,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
     submitData();
   });
 
-  initLocation(); // Ambil lokasi saat awal load
+  initLocation();
 });
 
 function resetForm() {
@@ -75,7 +80,7 @@ function resetForm() {
   document.getElementById("lokasi").textContent = "";
   currentLatitude = null;
   currentLongitude = null;
-  initLocation(); // Ambil lokasi ulang
+  initLocation();
 }
 
 function submitData() {
@@ -97,7 +102,7 @@ function submitData() {
   data.append("latitude", currentLatitude);
   data.append("longitude", currentLongitude);
 
-  fetch("https://script.google.com/macros/s/AKfycbxQ-Ax5Mqgq5UohAX2r4dpdN4Caqa8s2qvcOxwfcGzhVW-MQY42G5m5SGQCm3fk8hqJXA/exec" + data.toString())
+  fetch("https://script.google.com/macros/s/AKfycbxQ-Ax5Mqgq5UohAX2r4dpdN4Caqa8s2qvcOxwfcGzhVW-MQY42G5m5SGQCm3fk8hqJXA/exec?" + data.toString())
     .then(res => res.text())
     .then(msg => {
       showToast("✅ " + msg);
