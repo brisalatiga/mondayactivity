@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Activity</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="white%20BRI_2020.svg.png" />
+  <style>
+    .menu-wrapper {
+      margin: 40px auto;
+      text-align: center;
+    }
+    .menu-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 90%;
+      max-width: 320px;
+      margin: 16px auto;
+      padding: 16px 20px;
+      font-size: 18px;
+      font-weight: 600;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #0060AE, #007bff);
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+    .menu-btn:hover {
+      transform: translateY(-2px);
+      background: linear-gradient(135deg, #0050a3, #006ae3);
+    }
+    .menu-btn:active {
+      transform: scale(0.98);
+    }
+    input[type="password"] {
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      width: 90%;
+      max-width: 300px;
+      margin: 10px auto;
+      font-size: 16px;
+      text-align: center;
+      display: block;
+    }
+    #monitoring-section {
+      display: none;
+      margin-top: 20px;
+    }
+    .footer {
+      margin-top: 60px;
+      text-align: center;
+      font-size: 13px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <img src="white%20BRI_2020.svg.png" alt="BRI" class="logo-bri" />
+    <div>
+      <h1>Daily Activity<br><span>BRI Unit Susukan</span></h1>
+    </div>
+  </header>
+
+  <!-- Menu -->
+  <div class="menu-wrapper">
+    <button class="menu-btn" onclick="window.location.href='form.html'">
+      📝 Input Aktivitas
+    </button>
+    <button class="menu-btn" onclick="showMonitoring()">
+      📊 Monitoring Aktivitas
+    </button>
+
+    <div id="monitoring-section">
+      <input type="password" id="monitoring-password" placeholder="Masukkan Password" />
+      <button class="menu-btn" onclick="verifyPassword()">🔓 Masuk</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    &copy; 2025 BRI Unit Susukan — Daily Activity
+  </div>
+
+  <!-- Script -->
+  <script>
+    function showMonitoring() {
+      document.getElementById("monitoring-section").style.display = "block";
+    }
+
+    function verifyPassword() {
+      const password = document.getElementById("monitoring-password").value;
+      if (password === "445566") {
+        window.location.href = "monitoring.html";
+      } else {
+        alert("❌ Password salah!");
+      }
+    }
+  </script>
+</body>
+</html>
