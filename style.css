@@ -11,11 +11,12 @@ body {
 }
 
 /* Header */
-header {
+header.animated-header {
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 20px;
-  background: transparent;
+  animation: slideDown 1s ease-out;
 }
 .logo-bri {
   height: 50px;
@@ -31,18 +32,14 @@ main {
   text-align: center;
   padding: 0 20px;
 }
-.welcome-text {
+.welcome-text.animated-text {
   font-size: 20px;
   font-weight: 400;
   line-height: 1.5;
   max-width: 600px;
   margin: 0 auto;
   opacity: 0;
-  animation: fadeIn 2s forwards;
-}
-@keyframes fadeIn {
-  0% {opacity: 0; transform: translateY(20px);}
-  100% {opacity: 1; transform: translateY(0);}
+  animation: fadeScaleUp 1.5s forwards 0.5s; /* animasi dengan delay */
 }
 
 /* Tombol Lanjutkan */
@@ -57,6 +54,8 @@ main {
   font-weight: 600;
   cursor: pointer;
   transition: background 0.3s, transform 0.2s;
+  opacity: 0;
+  animation: fadeIn 1s forwards 1.8s; /* tombol muncul setelah teks selesai animasi */
 }
 .continue-btn:hover {
   background-color: #e65500;
@@ -69,4 +68,29 @@ footer {
   font-size: 12px;
   padding: 20px;
   color: #ccc;
+}
+
+/* Animasi Keyframes */
+@keyframes slideDown {
+  0% {opacity: 0; transform: translateY(-50px);}
+  100% {opacity: 1; transform: translateY(0);}
+}
+@keyframes fadeScaleUp {
+  0% {opacity: 0; transform: scale(0.8) translateY(30px);}
+  100% {opacity: 1; transform: scale(1) translateY(0);}
+}
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+/* Responsif */
+@media (max-width: 600px) {
+  .welcome-text.animated-text {
+    font-size: 18px;
+  }
+  .continue-btn {
+    width: 90%;
+    font-size: 16px;
+  }
 }
