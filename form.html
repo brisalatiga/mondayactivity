@@ -7,6 +7,30 @@
   <title>Monday Activity - Form</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="Brimo samping.png" />
+  <style>
+    main label {
+      font-weight: 600;
+      margin-top: 10px;
+      display: block;
+    }
+    main input,
+    main select {
+      width: 100%;
+      max-width: 400px;
+      padding: 10px;
+      font-size: 14px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  </style>
 </head>
 <body>
   <header class="modern-header">
@@ -20,13 +44,13 @@
       <input type="text" id="namaPekerja" placeholder="Masukkan nama pekerja" oninput="validateForm()" />
 
       <label for="pnPekerja">PN Pekerja</label>
-      <input type="text" id="pnPekerja" placeholder="Masukkan PN pekerja" oninput="validateForm()" />
+      <input type="text" id="pnPekerja" placeholder="8 digit angka" pattern="\\d{8}" maxlength="8" inputmode="numeric" oninput="validateForm()" />
 
       <label for="nasabah">Nama Nasabah</label>
       <input type="text" id="nasabah" placeholder="Masukkan nama nasabah" oninput="validateForm()" />
 
       <label for="noTelepon">No Telepon</label>
-      <input type="tel" id="noTelepon" placeholder="Masukkan nomor telepon" pattern="[0-9]*" inputmode="numeric" oninput="validateForm()" />
+      <input type="tel" id="noTelepon" placeholder="Masukkan nomor telepon" pattern="\\d+" inputmode="numeric" oninput="validateForm()" />
 
       <label for="refferal">Jenis Referral</label>
       <select id="refferal" onchange="validateForm()">
